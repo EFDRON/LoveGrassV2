@@ -155,10 +155,10 @@ export default function HomePage() {
           {/* Bottom edge fade — softens the transition into the next section */}
           <div
             aria-hidden="true"
-            className="absolute bottom-0 inset-x-0 h-32 pointer-events-none z-10"
+            className="absolute bottom-0 inset-x-0 h-48 pointer-events-none z-10"
             style={{
               background:
-                "linear-gradient(to bottom, transparent 0%, rgba(5, 75, 5, 0.6) 100%)",
+                "linear-gradient(to bottom, transparent 0%, #459934 100%)",
             }}
           />
         </CurtainHero>
