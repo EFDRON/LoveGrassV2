@@ -16,6 +16,15 @@ const nextConfig: NextConfig = {
 
     // Serve locally-hosted images with maximum cache TTL (1 year)
     minimumCacheTTL: 31536000,
+
+    // Allow next/image to optimise images hosted on Unsplash CDN
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        pathname: "/**",
+      },
+    ],
   },
 };
 

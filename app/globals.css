@@ -7,12 +7,17 @@
 /* ---------- Brand Color Tokens ---------- */
 @theme inline {
   /* Brand palette */
-  --color-brand-green-light: #3DA328;
+  --color-brand-green-light: #3da328;
   --color-brand-green-dark:  #459934;
-  --color-brand-forest:      #2B6027;
-  --color-brand-olive:       #516A3E;
-  --color-brand-gold:        #C7C466;
-  --color-brand-white:       #FFFFFF;
+  --color-brand-forest:      #2b6027;
+  --color-brand-olive:       #516a3e;
+  --color-brand-gold:        #c7c466;
+  --color-brand-white:       #ffffff;
+
+  /* Dark section palette — used by Featured Dishes & Reviews */
+  --color-brand-charcoal:    #141414;   /* near-black section background   */
+  --color-brand-deep-forest: #0f2416;   /* dark forest green card surfaces  */
+  --color-brand-green-main:  #3da328;   /* semantic alias for primary green */
 
   /* Semantic tokens */
   --color-background: var(--color-brand-white);
@@ -113,8 +118,11 @@ body {
   font-weight: 600;
   font-size: 0.875rem;
   letter-spacing: 0.025em;
-  transition: background-color 150ms ease, color 150ms ease,
-              box-shadow 150ms ease, transform 150ms ease;
+  transition:
+    background-color 150ms ease,
+    color 150ms ease,
+    box-shadow 150ms ease,
+    transform 150ms ease;
   cursor: pointer;
   text-decoration: none;
 }
@@ -168,22 +176,9 @@ body {
   position: relative;
   isolation: isolate;
   background:
-    radial-gradient(
-      ellipse 90% 80% at 95% 5%,
-      #3DA328 0%,
-      transparent 55%
-    ),
-    radial-gradient(
-      ellipse 80% 90% at 5% 95%,
-      #2B6027 0%,
-      transparent 60%
-    ),
-    linear-gradient(
-      135deg,
-      #459934 0%,
-      #3DA328 40%,
-      #2B6027 100%
-    );
+    radial-gradient(ellipse 90% 80% at 95% 5%, #3da328 0%, transparent 55%),
+    radial-gradient(ellipse 80% 90% at 5% 95%, #2b6027 0%, transparent 60%),
+    linear-gradient(135deg, #459934 0%, #3da328 40%, #2b6027 100%);
   overflow: hidden;
 }
 
@@ -237,19 +232,19 @@ body {
   letter-spacing: 0.02em;
   text-decoration: none;
   cursor: pointer;
-  background-color: #FFFFFF;
-  color: #2B6027;
+  background-color: #ffffff;
+  color: #2b6027;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
   transition:
     background-color 160ms ease,
-    color            160ms ease,
-    box-shadow       160ms ease,
-    transform        160ms ease;
+    color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
 }
 
 .btn-hero-solid:hover {
-  background-color: #C7C466;
-  color: #2B6027;
+  background-color: #c7c466;
+  color: #2b6027;
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
   transform: translateY(-2px);
 }
@@ -267,18 +262,18 @@ body {
   text-decoration: none;
   cursor: pointer;
   background-color: transparent;
-  color: #FFFFFF;
+  color: #ffffff;
   border: 2px solid rgba(255, 255, 255, 0.65);
   transition:
     background-color 160ms ease,
-    border-color     160ms ease,
-    box-shadow       160ms ease,
-    transform        160ms ease;
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
 }
 
 .btn-hero-ghost:hover {
   background-color: rgba(255, 255, 255, 0.12);
-  border-color: #FFFFFF;
+  border-color: #ffffff;
   box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.08);
   transform: translateY(-2px);
 }
@@ -289,19 +284,21 @@ body {
 .hero-image-glow {
   border-radius: 2rem;
   box-shadow:
-    0  0  0  1px  rgba(255, 255, 255, 0.15),
-    0  0  60px    rgba(255, 255, 255, 0.12),
-    0 24px 60px   rgba(0,   0,   0,   0.35),
-    0  8px 24px   rgba(0,   0,   0,   0.20);
-  transition: box-shadow 300ms ease, transform 300ms ease;
+    0 0 0 1px rgba(255, 255, 255, 0.15),
+    0 0 60px rgba(255, 255, 255, 0.12),
+    0 24px 60px rgba(0, 0, 0, 0.35),
+    0 8px 24px rgba(0, 0, 0, 0.2);
+  transition:
+    box-shadow 300ms ease,
+    transform 300ms ease;
 }
 
 .hero-image-glow:hover {
   box-shadow:
-    0  0  0  1px  rgba(255, 255, 255, 0.25),
-    0  0  80px    rgba(255, 255, 255, 0.18),
-    0 32px 72px   rgba(0,   0,   0,   0.40),
-    0 12px 28px   rgba(0,   0,   0,   0.22);
+    0 0 0 1px rgba(255, 255, 255, 0.25),
+    0 0 80px rgba(255, 255, 255, 0.18),
+    0 32px 72px rgba(0, 0, 0, 0.4),
+    0 12px 28px rgba(0, 0, 0, 0.22);
   transform: translateY(-4px) scale(1.005);
 }
 
@@ -309,8 +306,15 @@ body {
    HERO SCROLL INDICATOR — animated chevron
    ============================================================ */
 @keyframes hero-bounce {
-  0%, 100% { transform: translateY(0);    opacity: 0.6; }
-  50%       { transform: translateY(6px); opacity: 1;   }
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
 }
 
 .hero-scroll-indicator {
@@ -329,7 +333,7 @@ body {
   padding: 0.3rem 1rem;
   backdrop-filter: blur(8px);
   background-color: rgba(255, 255, 255, 0.06);
-  color: #C7C466;
+  color: #c7c466;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -340,6 +344,87 @@ body {
   width: 5px;
   height: 5px;
   border-radius: 9999px;
-  background-color: #C7C466;
+  background-color: #c7c466;
   flex-shrink: 0;
+}
+
+/* ============================================================
+   DARK SECTION BUTTON — gold outline on dark/charcoal bg
+   ============================================================ */
+.btn-outline-gold-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--color-brand-gold);
+  border: 2px solid var(--color-brand-gold);
+  transition:
+    background-color 160ms ease,
+    color            160ms ease,
+    box-shadow       160ms ease,
+    transform        160ms ease;
+}
+
+.btn-outline-gold-dark:hover {
+  background-color: var(--color-brand-gold);
+  color: var(--color-brand-charcoal);
+  box-shadow: 0 4px 20px rgba(199, 196, 102, 0.25);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   CSS-ONLY MARQUEE — infinite horizontal scroll for Reviews
+
+   Structure:
+     .marquee-outer   → overflow-hidden mask
+       .marquee-track → translates from 0 → -50% (one full set)
+         [cards × N] [cards × N]  ← two identical copies
+
+   The -50% translateX moves exactly one copy off-screen while
+   the second copy fills in, creating a seamless loop.
+   will-change: transform triggers GPU compositing.
+   ============================================================ */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  gap: 1.5rem;                        /* gap-6 between cards */
+  width: max-content;                 /* expands to fit all cards */
+  animation: marquee 48s linear infinite;
+  will-change: transform;
+}
+
+/* Pause on hover — useful UX for reading a review */
+.marquee-outer:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Edge fade masks — smooth left/right vanish */
+.marquee-outer {
+  overflow: hidden;
+  /* Soft vignette so cards don't hard-clip at viewport edges */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
 }

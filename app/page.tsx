@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { FeaturedDishes } from "@/components/FeaturedDishes";
+import { ReviewsMarquee } from "@/components/ReviewsMarquee";
+import { CurtainHero } from "@/components/animations/CurtainHero";
 
 /* -------------------------------------------------------
    Per-page SEO metadata
@@ -81,8 +84,9 @@ export default function HomePage() {
       */}
       <section
         aria-label="Love Grass hero — Artisanal Injera, Ancient Heritage"
-        className="hero-section hero-mesob-overlay relative min-h-[calc(100svh-4rem)] md:min-h-[calc(100svh-5rem)] flex items-center pb-20 md:pb-24"
+        className="hero-section hero-mesob-overlay sticky top-0 h-screen w-full z-0"
       >
+        <CurtainHero>
         {/*
           Inner grid — all content sits above the pseudo-element layers (z-index: 0/1)
           so we lift everything to z-10.
@@ -292,10 +296,23 @@ export default function HomePage() {
               "linear-gradient(to bottom, transparent 0%, rgba(43,96,39,0.6) 100%)",
           }}
         />
+        </CurtainHero>
       </section>
 
       {/* Anchor target for scroll indicator */}
       <div id="content" aria-hidden="true" />
+
+      {/* ════════════════════════════════════════════════
+          SECTION 2 — Featured Heritage Dishes
+          bg-brand-charcoal, 3-col grid, Unsplash images
+      ════════════════════════════════════════════════ */}
+      <FeaturedDishes />
+
+      {/* ════════════════════════════════════════════════
+          SECTION 3 — Voices of Our Guests (CSS marquee)
+          charcoal→deep-forest gradient + mesob overlay
+      ════════════════════════════════════════════════ */}
+      <ReviewsMarquee />
     </>
   );
 }
