@@ -173,13 +173,11 @@ body {
  * radial gradient, giving a cinematic depth without photography.
  */
 .hero-section {
-  position: relative;
   isolation: isolate;
   background:
     radial-gradient(ellipse 90% 80% at 95% 5%, #3da328 0%, transparent 55%),
     radial-gradient(ellipse 80% 90% at 5% 95%, #2b6027 0%, transparent 60%),
     linear-gradient(135deg, #459934 0%, #3da328 40%, #2b6027 100%);
-  overflow: hidden;
 }
 
 /**

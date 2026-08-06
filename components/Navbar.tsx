@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 
@@ -8,10 +9,10 @@ import { useState, useEffect, useRef } from "react";
    Navigation links config
 ------------------------------------------------------- */
 const NAV_LINKS = [
-  { label: "Home",     href: "/" },
-  { label: "Menu",     href: "/menu" },
+  { label: "Home", href: "/" },
+  { label: "Menu", href: "/menu" },
   { label: "Heritage", href: "/heritage" },
-  { label: "Contact",  href: "/contact" },
+  { label: "Contact", href: "/contact" },
 ] as const;
 
 /* -------------------------------------------------------
@@ -28,7 +29,14 @@ function LogoMark() {
       {/* Outer ring */}
       <circle cx="24" cy="24" r="22" fill="#2B6027" />
       {/* Inner ring accent */}
-      <circle cx="24" cy="24" r="18" fill="none" stroke="#C7C466" strokeWidth="1.5" />
+      <circle
+        cx="24"
+        cy="24"
+        r="18"
+        fill="none"
+        stroke="#C7C466"
+        strokeWidth="1.5"
+      />
       {/* Stylised grass blade — left */}
       <path
         d="M18 32 Q15 22 20 14"
@@ -70,7 +78,10 @@ function LogoMark() {
 ------------------------------------------------------- */
 function HamburgerIcon({ open }: { open: boolean }) {
   return (
-    <span className="relative flex flex-col justify-center items-center w-6 h-6" aria-hidden="true">
+    <span
+      className="relative flex flex-col justify-center items-center w-6 h-6"
+      aria-hidden="true"
+    >
       <span
         className={`absolute block h-0.5 w-6 bg-[#2B6027] rounded-full transition-all duration-300 ease-in-out ${
           open ? "rotate-45 translate-y-0" : "-translate-y-2"
@@ -95,9 +106,9 @@ function HamburgerIcon({ open }: { open: boolean }) {
 ------------------------------------------------------- */
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled]     = useState(false);
-  const pathname                    = usePathname();
-  const drawerRef                   = useRef<HTMLDivElement>(null);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const drawerRef = useRef<HTMLDivElement>(null);
 
   /* Elevate navbar on scroll */
   useEffect(() => {
@@ -117,17 +128,23 @@ export function Navbar() {
     const el = drawerRef.current;
     if (!el) return;
     const focusable = el.querySelectorAll<HTMLElement>(
-      'a, button, [tabindex]:not([tabindex="-1"])'
+      'a, button, [tabindex]:not([tabindex="-1"])',
     );
     focusable[0]?.focus();
     const first = focusable[0];
-    const last  = focusable[focusable.length - 1];
-    const trap  = (e: KeyboardEvent) => {
+    const last = focusable[focusable.length - 1];
+    const trap = (e: KeyboardEvent) => {
       if (e.key !== "Tab") return;
       if (e.shiftKey) {
-        if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
       } else {
-        if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
       }
     };
     el.addEventListener("keydown", trap);
@@ -157,29 +174,36 @@ export function Navbar() {
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         >
           <div className="flex items-center justify-between h-16 md:h-20">
-
             {/* Logo */}
             <Link
               href="/"
               aria-label="Love Grass — go to homepage"
               className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C7C466] rounded-full"
             >
-              <LogoMark />
+              <div className="relative w-12 h-12 flex-shrink-0">
+                {/* <LogoMark /> */}
+                <Image
+                  src="/lovegrass-logo.png"
+                  alt="Love Grass Logo"
+                  fill
+                  className="object-contain"
+                  sizes="60px"
+                  priority
+                />
+              </div>
+
               <span className="hidden sm:block leading-tight">
                 <span className="block text-[#2B6027] font-display font-bold text-xl tracking-tight group-hover:text-[#459934] transition-colors duration-200">
-                  Love Grass
+                  LoveGrass
                 </span>
                 <span className="block text-[#516A3E] text-[10px] font-medium tracking-widest uppercase">
-                  Ethiopian Cuisine
+                  Restaurant
                 </span>
               </span>
             </Link>
 
             {/* Desktop navigation */}
-            <ul
-              role="list"
-              className="hidden md:flex items-center gap-1"
-            >
+            <ul role="list" className="hidden md:flex items-center gap-1">
               {NAV_LINKS.map(({ label, href }) => (
                 <li key={href}>
                   <Link

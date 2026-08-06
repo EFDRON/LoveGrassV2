@@ -7,6 +7,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
+import { TiltCard } from "@/components/animations/TiltCard";
 
 /* -------------------------------------------------------
    Dish data — replace with CMS/API data as needed
@@ -242,7 +243,9 @@ export function FeaturedDishes() {
           {DISHES.map((dish, i) => (
             <div key={dish.id} role="listitem">
               <ScrollReveal delay={0.1 + i * 0.2}>
-                <DishCard dish={dish} index={i} />
+                <TiltCard>
+                  <DishCard dish={dish} index={i} />
+                </TiltCard>
               </ScrollReveal>
             </div>
           ))}

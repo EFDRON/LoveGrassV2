@@ -5,8 +5,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
-// Register ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 interface ScrollRevealProps {
   children: React.ReactNode;
@@ -27,7 +28,7 @@ export function ScrollReveal({ children, delay = 0 }: ScrollRevealProps) {
       gsap.to(containerRef.current, {
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top 85%", // Trigger when top of element hits 85% down viewport
+          start: "top 85%",
           end: "bottom 15%",
           toggleActions: "play reverse play reverse",
         },
