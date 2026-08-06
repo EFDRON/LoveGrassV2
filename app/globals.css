@@ -1,0 +1,345 @@
+@import "tailwindcss";
+
+/* ============================================================
+   LOVE GRASS — BRAND DESIGN SYSTEM (Tailwind v4 CSS-first)
+   ============================================================ */
+
+/* ---------- Brand Color Tokens ---------- */
+@theme inline {
+  /* Brand palette */
+  --color-brand-green-light: #3DA328;
+  --color-brand-green-dark:  #459934;
+  --color-brand-forest:      #2B6027;
+  --color-brand-olive:       #516A3E;
+  --color-brand-gold:        #C7C466;
+  --color-brand-white:       #FFFFFF;
+
+  /* Semantic tokens */
+  --color-background: var(--color-brand-white);
+  --color-foreground: #1a1a1a;
+  --color-muted:      #6b7280;
+
+  /* Typography scale */
+  --font-sans:    var(--font-inter);
+  --font-display: var(--font-playfair);
+}
+
+/* ---------- Base resets ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------- Display / heading font utility ---------- */
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+/* ============================================================
+   .bg-texture — Subtle earthy cinematic background texture.
+   Layered radial gradients + a PNG noise overlay (base64 SVG
+   filter) to evoke the warmth of a traditional Ethiopian
+   kitchen without cluttering the clean white space.
+   ============================================================ */
+.bg-texture {
+  position: relative;
+  isolation: isolate;
+}
+
+.bg-texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  /* Warm amber radial glow — very low opacity */
+  background:
+    radial-gradient(
+      ellipse 80% 60% at 20% 10%,
+      rgba(199, 196, 102, 0.06) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 60% 80% at 80% 90%,
+      rgba(43, 96, 39, 0.05) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 100% 100% at 50% 50%,
+      rgba(252, 248, 240, 0.8) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
+  pointer-events: none;
+}
+
+/* SVG-based monochromatic noise grain */
+.bg-texture::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.032;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  pointer-events: none;
+}
+
+/* ============================================================
+   Utility helpers
+   ============================================================ */
+
+/* Pill / fully-rounded button base */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.025em;
+  transition: background-color 150ms ease, color 150ms ease,
+              box-shadow 150ms ease, transform 150ms ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-pill:hover {
+  transform: translateY(-1px);
+}
+
+/* Primary CTA */
+.btn-primary {
+  background-color: var(--color-brand-forest);
+  color: var(--color-brand-white);
+  box-shadow: 0 2px 8px rgba(43, 96, 39, 0.25);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-brand-green-dark);
+  box-shadow: 0 4px 14px rgba(43, 96, 39, 0.35);
+}
+
+/* Gold accent outline */
+.btn-outline-gold {
+  background-color: transparent;
+  color: var(--color-brand-forest);
+  border: 2px solid var(--color-brand-gold);
+}
+
+.btn-outline-gold:hover {
+  background-color: var(--color-brand-gold);
+  color: var(--color-brand-forest);
+}
+
+/* ============================================================
+   Focus visible (accessibility)
+   ============================================================ */
+:focus-visible {
+  outline: 2px solid var(--color-brand-gold);
+  outline-offset: 3px;
+}
+
+/* ============================================================
+   HERO SECTION — Mesob-inspired background system
+   ============================================================ */
+
+/**
+ * .hero-section
+ * Base layer: brand-green-light (top-right) → brand-green-dark (bottom-left)
+ * radial gradient, giving a cinematic depth without photography.
+ */
+.hero-section {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(
+      ellipse 90% 80% at 95% 5%,
+      #3DA328 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 80% 90% at 5% 95%,
+      #2B6027 0%,
+      transparent 60%
+    ),
+    linear-gradient(
+      135deg,
+      #459934 0%,
+      #3DA328 40%,
+      #2B6027 100%
+    );
+  overflow: hidden;
+}
+
+/**
+ * .hero-mesob-overlay
+ * Pseudo-element that tiles mesob-pattern.png at 7% opacity —
+ * subtle enough to feel like woven texture, not a busy pattern.
+ */
+.hero-mesob-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("/mesob-pattern.png");
+  background-repeat: repeat;
+  background-size: 340px 340px;
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/**
+ * Noise grain layer on top of mesob (same technique as .bg-texture)
+ * adds micro-depth so the green gradient doesn't look flat on screen.
+ */
+.hero-mesob-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  pointer-events: none;
+}
+
+/* ============================================================
+   HERO CTAs — white/ghost variants for use on dark backgrounds
+   ============================================================ */
+
+/** Solid white button with forest text */
+.btn-hero-solid {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 0.75rem 2rem;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  color: #2B6027;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+  transition:
+    background-color 160ms ease,
+    color            160ms ease,
+    box-shadow       160ms ease,
+    transform        160ms ease;
+}
+
+.btn-hero-solid:hover {
+  background-color: #C7C466;
+  color: #2B6027;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+  transform: translateY(-2px);
+}
+
+/** Ghost white button */
+.btn-hero-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: #FFFFFF;
+  border: 2px solid rgba(255, 255, 255, 0.65);
+  transition:
+    background-color 160ms ease,
+    border-color     160ms ease,
+    box-shadow       160ms ease,
+    transform        160ms ease;
+}
+
+.btn-hero-ghost:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: #FFFFFF;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   HERO IMAGE — soft white outer glow + lift shadow
+   ============================================================ */
+.hero-image-glow {
+  border-radius: 2rem;
+  box-shadow:
+    0  0  0  1px  rgba(255, 255, 255, 0.15),
+    0  0  60px    rgba(255, 255, 255, 0.12),
+    0 24px 60px   rgba(0,   0,   0,   0.35),
+    0  8px 24px   rgba(0,   0,   0,   0.20);
+  transition: box-shadow 300ms ease, transform 300ms ease;
+}
+
+.hero-image-glow:hover {
+  box-shadow:
+    0  0  0  1px  rgba(255, 255, 255, 0.25),
+    0  0  80px    rgba(255, 255, 255, 0.18),
+    0 32px 72px   rgba(0,   0,   0,   0.40),
+    0 12px 28px   rgba(0,   0,   0,   0.22);
+  transform: translateY(-4px) scale(1.005);
+}
+
+/* ============================================================
+   HERO SCROLL INDICATOR — animated chevron
+   ============================================================ */
+@keyframes hero-bounce {
+  0%, 100% { transform: translateY(0);    opacity: 0.6; }
+  50%       { transform: translateY(6px); opacity: 1;   }
+}
+
+.hero-scroll-indicator {
+  animation: hero-bounce 2s ease-in-out infinite;
+}
+
+/* ============================================================
+   AMHARIC BADGE — decorative top label in hero
+   ============================================================ */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(199, 196, 102, 0.45);
+  border-radius: 9999px;
+  padding: 0.3rem 1rem;
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.06);
+  color: #C7C466;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero-badge .hero-badge-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  background-color: #C7C466;
+  flex-shrink: 0;
+}
