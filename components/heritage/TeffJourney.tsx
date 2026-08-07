@@ -160,6 +160,229 @@ function buildRoadPath(w: number, h: number): string {
    Front of tractor faces +X (right) so offset-rotate:auto
    correctly rotates it to face the direction of travel.
 ───────────────────────────────────────────────────────── */
+// function TractorTopView() {
+//   return (
+//     <svg
+//       viewBox="0 0 130 68"
+//       width={130}
+//       height={68}
+//       xmlns="http://www.w3.org/2000/svg"
+//       style={{
+//         display: "block",
+//         filter:
+//           "drop-shadow(0 8px 20px rgba(0,0,0,0.80)) drop-shadow(0 2px 5px rgba(0,0,0,0.55))",
+//       }}
+//       aria-hidden="true"
+//     >
+//       {/* Ground shadow */}
+//       <ellipse cx="65" cy="63" rx="44" ry="5.5" fill="rgba(0,0,0,0.40)" />
+
+//       {/* ── REAR LEFT WHEEL (top-left in top-view) ── */}
+//       <rect x="4" y="2" width="26" height="15" rx="3.5" fill="#0f0f0f" />
+//       <rect
+//         x="6"
+//         y="3.5"
+//         width="22"
+//         height="12"
+//         rx="2.5"
+//         fill="#1e1e1e"
+//         stroke="#C7C466"
+//         strokeWidth="0.9"
+//       />
+//       <line
+//         x1="8"
+//         y1="9.5"
+//         x2="26"
+//         y2="9.5"
+//         stroke="#C7C466"
+//         strokeWidth="0.7"
+//         strokeOpacity="0.5"
+//       />
+//       <rect x="4" y="51" width="26" height="15" rx="3.5" fill="#0f0f0f" />
+//       <rect
+//         x="6"
+//         y="52.5"
+//         width="22"
+//         height="12"
+//         rx="2.5"
+//         fill="#1e1e1e"
+//         stroke="#C7C466"
+//         strokeWidth="0.9"
+//       />
+//       <line
+//         x1="8"
+//         y1="58.5"
+//         x2="26"
+//         y2="58.5"
+//         stroke="#C7C466"
+//         strokeWidth="0.7"
+//         strokeOpacity="0.5"
+//       />
+
+//       {/* Rear axle bar */}
+//       <rect x="4" y="16" width="26" height="36" rx="1.5" fill="#181818" />
+
+//       {/* ── MAIN BODY ── */}
+//       <rect x="24" y="13" width="62" height="42" rx="5" fill="#2B6027" />
+
+//       {/* ── CAB / CANOPY ── */}
+//       <rect x="26" y="15" width="44" height="38" rx="4" fill="#459934" />
+//       {/* Cabin roof ridge */}
+//       <rect
+//         x="30"
+//         y="17"
+//         width="36"
+//         height="34"
+//         rx="3"
+//         fill="#3DA328"
+//         fillOpacity="0.5"
+//       />
+//       {/* Window glass (from above) */}
+//       <rect
+//         x="44"
+//         y="20"
+//         width="20"
+//         height="28"
+//         rx="2"
+//         fill="#7AB87A"
+//         fillOpacity="0.45"
+//       />
+//       <line
+//         x1="54"
+//         y1="20"
+//         x2="54"
+//         y2="48"
+//         stroke="#2B6027"
+//         strokeWidth="1"
+//         strokeOpacity="0.6"
+//       />
+//       <line
+//         x1="44"
+//         y1="34"
+//         x2="64"
+//         y2="34"
+//         stroke="#2B6027"
+//         strokeWidth="0.8"
+//         strokeOpacity="0.4"
+//       />
+
+//       {/* ── ENGINE HOOD (front, narrower) ── */}
+//       <rect x="68" y="19" width="40" height="30" rx="4" fill="#3DA328" />
+//       {/* Hood vents */}
+//       <line
+//         x1="75"
+//         y1="25"
+//         x2="75"
+//         y2="43"
+//         stroke="#1e4d1a"
+//         strokeWidth="1.4"
+//         strokeOpacity="0.6"
+//       />
+//       <line
+//         x1="82"
+//         y1="25"
+//         x2="82"
+//         y2="43"
+//         stroke="#1e4d1a"
+//         strokeWidth="1.4"
+//         strokeOpacity="0.6"
+//       />
+//       <line
+//         x1="89"
+//         y1="25"
+//         x2="89"
+//         y2="43"
+//         stroke="#1e4d1a"
+//         strokeWidth="1.4"
+//         strokeOpacity="0.6"
+//       />
+//       <line
+//         x1="96"
+//         y1="25"
+//         x2="96"
+//         y2="43"
+//         stroke="#1e4d1a"
+//         strokeWidth="1.4"
+//         strokeOpacity="0.6"
+//       />
+
+//       {/* ── EXHAUST PIPE ── */}
+//       <circle cx="48" cy="15" r="4.5" fill="#C7C466" />
+//       <circle cx="48" cy="15" r="2.8" fill="#a8a44a" />
+//       <circle cx="48" cy="15" r="1.3" fill="#2B6027" />
+
+//       {/* ── GOLD ACCENT STRIPE ── */}
+//       <rect
+//         x="24"
+//         y="32"
+//         width="62"
+//         height="3.5"
+//         rx="1.5"
+//         fill="#C7C466"
+//         fillOpacity="0.35"
+//       />
+
+//       {/* ── FRONT LEFT WHEEL (top-right in top-view) ── */}
+//       <rect x="102" y="5" width="20" height="12" rx="3" fill="#0f0f0f" />
+//       <rect
+//         x="103.5"
+//         y="6"
+//         width="17"
+//         height="10"
+//         rx="2"
+//         fill="#1e1e1e"
+//         stroke="#C7C466"
+//         strokeWidth="0.8"
+//       />
+//       <rect x="102" y="51" width="20" height="12" rx="3" fill="#0f0f0f" />
+//       <rect
+//         x="103.5"
+//         y="52"
+//         width="17"
+//         height="10"
+//         rx="2"
+//         fill="#1e1e1e"
+//         stroke="#C7C466"
+//         strokeWidth="0.8"
+//       />
+
+//       {/* Front axle bar */}
+//       <rect x="104" y="16" width="14" height="36" rx="1.5" fill="#181818" />
+
+//       {/* ── GRILL ── */}
+//       <rect x="108" y="22" width="10" height="24" rx="2" fill="#111" />
+//       <line
+//         x1="110"
+//         y1="26"
+//         x2="110"
+//         y2="42"
+//         stroke="#C7C466"
+//         strokeWidth="0.8"
+//         strokeOpacity="0.5"
+//       />
+//       <line
+//         x1="114"
+//         y1="26"
+//         x2="114"
+//         y2="42"
+//         stroke="#C7C466"
+//         strokeWidth="0.8"
+//         strokeOpacity="0.5"
+//       />
+
+//       {/* ── HEADLIGHTS ── */}
+//       <circle cx="117" cy="25" r="3" fill="#FFF9C4" fillOpacity="0.95" />
+//       <circle cx="117" cy="43" r="3" fill="#FFF9C4" fillOpacity="0.95" />
+
+//       {/* Front bumper detail */}
+//       <rect x="118" y="21" width="5" height="26" rx="1.5" fill="#1a3d1a" />
+//     </svg>
+//   );
+// }
+/* ─────────────────────────────────────────────────────────
+   Premium Top-view tractor SVG (Drop-in Replacement)
+   Maintains 130x68 bounds and +X facing direction.
+───────────────────────────────────────────────────────── */
 function TractorTopView() {
   return (
     <svg
@@ -170,212 +393,244 @@ function TractorTopView() {
       style={{
         display: "block",
         filter:
-          "drop-shadow(0 8px 20px rgba(0,0,0,0.80)) drop-shadow(0 2px 5px rgba(0,0,0,0.55))",
+          "drop-shadow(0 12px 24px rgba(0,0,0,0.85)) drop-shadow(0 4px 8px rgba(0,0,0,0.6))",
       }}
       aria-hidden="true"
     >
-      {/* Ground shadow */}
-      <ellipse cx="65" cy="63" rx="44" ry="5.5" fill="rgba(0,0,0,0.40)" />
+      <defs>
+        {/* Rich Body Gradient */}
+        <linearGradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#459934" />
+          <stop offset="30%" stopColor="#2B6027" />
+          <stop offset="70%" stopColor="#2B6027" />
+          <stop offset="100%" stopColor="#1a3d1a" />
+        </linearGradient>
 
-      {/* ── REAR LEFT WHEEL (top-left in top-view) ── */}
-      <rect x="4" y="2" width="26" height="15" rx="3.5" fill="#0f0f0f" />
+        {/* Engine Hood Gradient (lighter for depth) */}
+        <linearGradient id="hoodGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#55b342" />
+          <stop offset="50%" stopColor="#3DA328" />
+          <stop offset="100%" stopColor="#245420" />
+        </linearGradient>
+
+        {/* Gold Metallic Accent */}
+        <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#FFF9C4" />
+          <stop offset="50%" stopColor="#C7C466" />
+          <stop offset="100%" stopColor="#8a8738" />
+        </linearGradient>
+
+        {/* Tire Base Gradient */}
+        <linearGradient id="tireGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#222" />
+          <stop offset="50%" stopColor="#0f0f0f" />
+          <stop offset="100%" stopColor="#050505" />
+        </linearGradient>
+
+        {/* Glass Reflection Gradient */}
+        <linearGradient id="glassGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="rgba(255,255,255,0.4)" />
+          <stop offset="30%" stopColor="rgba(122,184,122,0.1)" />
+          <stop offset="100%" stopColor="rgba(0,0,0,0.5)" />
+        </linearGradient>
+
+        {/* Tire Tread Pattern */}
+        <pattern id="tread" width="6" height="15" patternUnits="userSpaceOnUse">
+          <rect x="0" y="0" width="3" height="15" fill="#000" opacity="0.6" />
+        </pattern>
+      </defs>
+
+      {/* ── GROUND SHADOW ── */}
+      <ellipse cx="65" cy="34" rx="55" ry="28" fill="rgba(0,0,0,0.45)" />
+
+      {/* ── REAR AXLE ── */}
+      <rect x="18" y="12" width="16" height="44" rx="2" fill="#111" />
+
+      {/* ── FRONT AXLE ── */}
+      <rect x="100" y="16" width="10" height="36" rx="2" fill="#111" />
+
+      {/* ── TIRES ── */}
+      {/* Rear Left */}
+      <rect x="4" y="2" width="32" height="16" rx="4" fill="url(#tireGrad)" />
+      <rect x="4" y="2" width="32" height="16" rx="4" fill="url(#tread)" />
       <rect
-        x="6"
-        y="3.5"
-        width="22"
+        x="8"
+        y="4"
+        width="24"
         height="12"
-        rx="2.5"
-        fill="#1e1e1e"
-        stroke="#C7C466"
-        strokeWidth="0.9"
-      />
-      <line
-        x1="8"
-        y1="9.5"
-        x2="26"
-        y2="9.5"
-        stroke="#C7C466"
-        strokeWidth="0.7"
-        strokeOpacity="0.5"
-      />
-      <rect x="4" y="51" width="26" height="15" rx="3.5" fill="#0f0f0f" />
-      <rect
-        x="6"
-        y="52.5"
-        width="22"
-        height="12"
-        rx="2.5"
-        fill="#1e1e1e"
-        stroke="#C7C466"
-        strokeWidth="0.9"
-      />
-      <line
-        x1="8"
-        y1="58.5"
-        x2="26"
-        y2="58.5"
-        stroke="#C7C466"
-        strokeWidth="0.7"
-        strokeOpacity="0.5"
-      />
-
-      {/* Rear axle bar */}
-      <rect x="4" y="16" width="26" height="36" rx="1.5" fill="#181818" />
-
-      {/* ── MAIN BODY ── */}
-      <rect x="24" y="13" width="62" height="42" rx="5" fill="#2B6027" />
-
-      {/* ── CAB / CANOPY ── */}
-      <rect x="26" y="15" width="44" height="38" rx="4" fill="#459934" />
-      {/* Cabin roof ridge */}
-      <rect
-        x="30"
-        y="17"
-        width="36"
-        height="34"
-        rx="3"
-        fill="#3DA328"
-        fillOpacity="0.5"
-      />
-      {/* Window glass (from above) */}
-      <rect
-        x="44"
-        y="20"
-        width="20"
-        height="28"
         rx="2"
-        fill="#7AB87A"
-        fillOpacity="0.45"
-      />
-      <line
-        x1="54"
-        y1="20"
-        x2="54"
-        y2="48"
-        stroke="#2B6027"
+        fill="none"
+        stroke="url(#goldGrad)"
         strokeWidth="1"
-        strokeOpacity="0.6"
-      />
-      <line
-        x1="44"
-        y1="34"
-        x2="64"
-        y2="34"
-        stroke="#2B6027"
-        strokeWidth="0.8"
-        strokeOpacity="0.4"
+        opacity="0.8"
       />
 
-      {/* ── ENGINE HOOD (front, narrower) ── */}
-      <rect x="68" y="19" width="40" height="30" rx="4" fill="#3DA328" />
-      {/* Hood vents */}
-      <line
-        x1="75"
-        y1="25"
-        x2="75"
-        y2="43"
-        stroke="#1e4d1a"
-        strokeWidth="1.4"
-        strokeOpacity="0.6"
-      />
-      <line
-        x1="82"
-        y1="25"
-        x2="82"
-        y2="43"
-        stroke="#1e4d1a"
-        strokeWidth="1.4"
-        strokeOpacity="0.6"
-      />
-      <line
-        x1="89"
-        y1="25"
-        x2="89"
-        y2="43"
-        stroke="#1e4d1a"
-        strokeWidth="1.4"
-        strokeOpacity="0.6"
-      />
-      <line
-        x1="96"
-        y1="25"
-        x2="96"
-        y2="43"
-        stroke="#1e4d1a"
-        strokeWidth="1.4"
-        strokeOpacity="0.6"
-      />
-
-      {/* ── EXHAUST PIPE ── */}
-      <circle cx="48" cy="15" r="4.5" fill="#C7C466" />
-      <circle cx="48" cy="15" r="2.8" fill="#a8a44a" />
-      <circle cx="48" cy="15" r="1.3" fill="#2B6027" />
-
-      {/* ── GOLD ACCENT STRIPE ── */}
+      {/* Rear Right */}
+      <rect x="4" y="50" width="32" height="16" rx="4" fill="url(#tireGrad)" />
+      <rect x="4" y="50" width="32" height="16" rx="4" fill="url(#tread)" />
       <rect
-        x="24"
-        y="32"
-        width="62"
-        height="3.5"
-        rx="1.5"
-        fill="#C7C466"
-        fillOpacity="0.35"
-      />
-
-      {/* ── FRONT LEFT WHEEL (top-right in top-view) ── */}
-      <rect x="102" y="5" width="20" height="12" rx="3" fill="#0f0f0f" />
-      <rect
-        x="103.5"
-        y="6"
-        width="17"
-        height="10"
-        rx="2"
-        fill="#1e1e1e"
-        stroke="#C7C466"
-        strokeWidth="0.8"
-      />
-      <rect x="102" y="51" width="20" height="12" rx="3" fill="#0f0f0f" />
-      <rect
-        x="103.5"
+        x="8"
         y="52"
-        width="17"
-        height="10"
+        width="24"
+        height="12"
         rx="2"
-        fill="#1e1e1e"
-        stroke="#C7C466"
-        strokeWidth="0.8"
+        fill="none"
+        stroke="url(#goldGrad)"
+        strokeWidth="1"
+        opacity="0.8"
       />
 
-      {/* Front axle bar */}
-      <rect x="104" y="16" width="14" height="36" rx="1.5" fill="#181818" />
-
-      {/* ── GRILL ── */}
-      <rect x="108" y="22" width="10" height="24" rx="2" fill="#111" />
-      <line
-        x1="110"
-        y1="26"
-        x2="110"
-        y2="42"
-        stroke="#C7C466"
+      {/* Front Left */}
+      <rect x="96" y="5" width="24" height="12" rx="3" fill="url(#tireGrad)" />
+      <rect x="96" y="5" width="24" height="12" rx="3" fill="url(#tread)" />
+      <rect
+        x="98"
+        y="6.5"
+        width="20"
+        height="9"
+        rx="1.5"
+        fill="none"
+        stroke="url(#goldGrad)"
         strokeWidth="0.8"
-        strokeOpacity="0.5"
+        opacity="0.8"
       />
-      <line
-        x1="114"
-        y1="26"
-        x2="114"
-        y2="42"
-        stroke="#C7C466"
+
+      {/* Front Right */}
+      <rect x="96" y="51" width="24" height="12" rx="3" fill="url(#tireGrad)" />
+      <rect x="96" y="51" width="24" height="12" rx="3" fill="url(#tread)" />
+      <rect
+        x="98"
+        y="52.5"
+        width="20"
+        height="9"
+        rx="1.5"
+        fill="none"
+        stroke="url(#goldGrad)"
         strokeWidth="0.8"
-        strokeOpacity="0.5"
+        opacity="0.8"
+      />
+
+      {/* ── MAIN CHASSIS ── */}
+      <rect x="22" y="15" width="68" height="38" rx="6" fill="url(#bodyGrad)" />
+
+      {/* Engine Block / Lower mechanics */}
+      <rect x="74" y="18" width="26" height="32" rx="3" fill="#181818" />
+
+      {/* ── ENGINE HOOD ── */}
+      <rect x="65" y="17" width="46" height="34" rx="4" fill="url(#hoodGrad)" />
+
+      {/* Hood Vents (Detailed) */}
+      <path
+        d="M 72 20 L 72 48 M 77 20 L 77 48 M 82 20 L 82 48 M 87 20 L 87 48 M 92 20 L 92 48"
+        stroke="#112b10"
+        strokeWidth="1.5"
+        opacity="0.7"
+        strokeLinecap="round"
+      />
+      <path
+        d="M 72 20 L 72 48 M 77 20 L 77 48 M 82 20 L 82 48 M 87 20 L 87 48 M 92 20 L 92 48"
+        stroke="#000"
+        strokeWidth="0.5"
+        opacity="0.5"
+        strokeLinecap="round"
+      />
+
+      {/* ── REAR HITCH / PTO ── */}
+      <rect x="14" y="30" width="10" height="8" rx="1" fill="#181818" />
+      <circle cx="16" cy="34" r="2" fill="url(#goldGrad)" />
+
+      {/* ── CABIN INTERIOR (Under glass) ── */}
+      {/* Seat */}
+      <rect x="30" y="28" width="10" height="12" rx="2" fill="#111" />
+      <rect x="32" y="29" width="6" height="10" rx="1" fill="#2a2826" />
+      {/* Steering Wheel */}
+      <rect x="44" y="32" width="4" height="4" rx="1" fill="#111" />
+      <line
+        x1="46"
+        y1="28"
+        x2="46"
+        y2="40"
+        stroke="#111"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      <circle cx="46" cy="34" r="1.5" fill="url(#goldGrad)" />
+
+      {/* ── CABIN EXTERIOR & GLASS ── */}
+      <rect x="24" y="15" width="38" height="38" rx="6" fill="#1a3d1a" />
+      {/* Roof */}
+      <rect x="26" y="17" width="34" height="34" rx="4" fill="url(#bodyGrad)" />
+      <rect x="30" y="21" width="26" height="26" rx="2" fill="url(#hoodGrad)" />
+
+      {/* Wrap-around Windows */}
+      {/* Front Window */}
+      <rect
+        x="48"
+        y="19"
+        width="8"
+        height="30"
+        rx="1"
+        fill="url(#glassGrad)"
+        stroke="#1a3d1a"
+        strokeWidth="1"
+      />
+      {/* Rear Window */}
+      <rect
+        x="28"
+        y="19"
+        width="4"
+        height="30"
+        rx="1"
+        fill="url(#glassGrad)"
+        stroke="#1a3d1a"
+        strokeWidth="1"
+      />
+      {/* Left/Right Windows */}
+      <rect x="33" y="19" width="14" height="4" rx="1" fill="url(#glassGrad)" />
+      <rect x="33" y="45" width="14" height="4" rx="1" fill="url(#glassGrad)" />
+
+      {/* ── EXHAUST STACK ── */}
+      <circle cx="58" cy="14" r="5" fill="#111" />
+      <circle cx="58" cy="14" r="4" fill="url(#goldGrad)" />
+      <circle cx="58" cy="14" r="2.5" fill="#000" />
+      {/* Smoke particle effect (subtle) */}
+      <circle cx="58" cy="8" r="3" fill="#fff" opacity="0.15" />
+      <circle cx="55" cy="4" r="4" fill="#fff" opacity="0.1" />
+
+      {/* ── GOLD ACCENT STRIPES ── */}
+      <rect
+        x="66"
+        y="32"
+        width="44"
+        height="4"
+        fill="url(#goldGrad)"
+        opacity="0.85"
+      />
+
+      {/* ── FRONT GRILL & BUMPER ── */}
+      {/* Heavy Bumper */}
+      <rect x="110" y="20" width="8" height="28" rx="2" fill="#181818" />
+      <rect x="116" y="22" width="4" height="24" rx="1" fill="#111" />
+
+      {/* Grill texture */}
+      <path
+        d="M 112 24 L 112 44 M 114 24 L 114 44"
+        stroke="url(#goldGrad)"
+        strokeWidth="1"
+        opacity="0.6"
       />
 
       {/* ── HEADLIGHTS ── */}
-      <circle cx="117" cy="25" r="3" fill="#FFF9C4" fillOpacity="0.95" />
-      <circle cx="117" cy="43" r="3" fill="#FFF9C4" fillOpacity="0.95" />
+      {/* Left Light */}
+      <ellipse cx="117" cy="24" rx="3.5" ry="4.5" fill="#FFF9C4" />
+      <ellipse cx="117" cy="24" rx="2" ry="3" fill="#fff" />
+      {/* Right Light */}
+      <ellipse cx="117" cy="44" rx="3.5" ry="4.5" fill="#FFF9C4" />
+      <ellipse cx="117" cy="44" rx="2" ry="3" fill="#fff" />
 
-      {/* Front bumper detail */}
-      <rect x="118" y="21" width="5" height="26" rx="1.5" fill="#1a3d1a" />
+      {/* Glowing Light Beams (Points Forward +X) */}
+      <path d="M 118 24 L 130 14 L 130 34 Z" fill="#FFF9C4" opacity="0.15" />
+      <path d="M 118 44 L 130 34 L 130 54 Z" fill="#FFF9C4" opacity="0.15" />
     </svg>
   );
 }

@@ -37,7 +37,7 @@ export function DishCard({
       className="group flex flex-col h-full rounded-3xl border border-brand-gold/10 bg-brand-charcoal/40 shadow-2xl shadow-black/40 overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:border-brand-gold/25 hover:shadow-brand-forest/20"
     >
       {/* ── Image ─────────────────────────────────────── */}
-      <div className="relative aspect-video overflow-hidden shrink-0">
+      <div className="relative aspect-video md:aspect-[4/3] overflow-hidden shrink-0">
         <Image
           src={dish.image}
           alt={dish.imageAlt}
