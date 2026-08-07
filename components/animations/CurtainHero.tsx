@@ -39,7 +39,7 @@ export function CurtainHero({ children }: CurtainHeroProps) {
   return (
     <div
       ref={containerRef}
-      className="w-full h-full flex items-center justify-center pb-20 md:pb-24 relative"
+      className="w-full h-full relative"
     >
       {children}
     </div>

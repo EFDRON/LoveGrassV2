@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { TiltContainer } from "./animations/TiltContainer";
+
 
 export interface HeroSlide {
   id: number;
@@ -45,24 +45,55 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
   );
 
   return (
-    <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-      {/* We set a min-height to ensure the container holds its height during absolute positioning */}
-        <div className="relative w-full min-h-[700px] lg:min-h-[600px]">
+    <div className="relative z-10 w-full h-full overflow-hidden flex flex-col justify-center min-h-[700px] lg:min-h-[600px]">
+        <div className="absolute inset-0 w-full h-full">
           {slides.map((slide, index) => {
             const isActive = index === currentIndex;
             
             return (
               <div
                 key={slide.id}
-                className={`absolute inset-0 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center transition-opacity duration-1000 ease-in-out ${
+                className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${
                   isActive ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
                 }`}
                 aria-hidden={!isActive}
               >
                 {/* ═══════════════════════════════════════════════
+                    RIGHT BACKGROUND — Hero Image Visual
+                ═══════════════════════════════════════════════ */}
+                <div 
+                  className="absolute top-0 right-0 h-full w-full lg:w-[68%]"
+                  style={{
+                    WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 25%)",
+                    maskImage: "linear-gradient(to right, transparent 0%, black 25%)"
+                  }}
+                >
+                  <Image
+                    src={slide.imageSrc}
+                    alt={slide.imageAlt}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 70vw"
+                    quality={90}
+                    priority={index === 0}
+                    className="object-cover object-center"
+                  />
+                  {/* Strong dark overlay on mobile for readability, subtle blend on desktop */}
+                  <div className="absolute inset-0 bg-black/60 mix-blend-normal lg:bg-brand-forest/20 lg:mix-blend-overlay" />
+                  
+                  {/* Floating dish-name badge */}
+                  <div className="absolute bottom-16 lg:bottom-12 right-6 lg:right-12 flex items-end justify-between z-10" aria-hidden="true">
+                    <div className="hero-badge text-xs md:text-sm tracking-widest bg-brand-forest/80 backdrop-blur-sm py-2 px-4 shadow-xl">
+                      <span className="hero-badge-dot" />
+                      {slide.imageBadge}
+                    </div>
+                  </div>
+                </div>
+
+                {/* ═══════════════════════════════════════════════
                     LEFT COLUMN — Narrative / Text
                 ═══════════════════════════════════════════════ */}
-                <div className="flex flex-col justify-center lg:pr-8 text-center lg:text-left h-full">
+                <div className="relative z-10 w-full h-full lg:w-[50%] xl:w-[40%] flex items-center px-4 sm:px-8 lg:pl-12 xl:pl-[8%] pt-20 lg:pt-28">
+                  <div className="flex flex-col justify-center lg:pr-8 text-center lg:text-left h-full max-w-2xl py-16 md:py-24 mt-8 lg:mt-0">
                   {/* Amharic / brand identity badge */}
                   <div className="flex justify-center lg:justify-start mb-5">
                     <div className="hero-badge" aria-label={`${slide.kickerEnglish} in Amharic — ${slide.kickerAmharic}`}>
@@ -92,7 +123,7 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
                   </h1>
 
                   {/* Sub-description */}
-                  <p className="text-brand-gold/90 text-base sm:text-lg leading-relaxed max-w-md mx-auto lg:mx-0 mb-10 font-medium">
+                  <p className="text-brand-gold/90 text-base sm:text-lg leading-relaxed max-w-md mx-auto lg:mx-0 mb-10 font-medium drop-shadow-md">
                     {slide.subtext}
                   </p>
 
@@ -116,54 +147,6 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
                     ))}
                   </div>
                 </div>
-
-                {/* ═══════════════════════════════════════════════
-                    RIGHT COLUMN — Hero Image Visual
-                ═══════════════════════════════════════════════ */}
-                <div className="relative flex items-center justify-center lg:justify-end h-full">
-                  {/* Decorative glow ring behind the image */}
-                  <div
-                    aria-hidden="true"
-                    className="absolute inset-0 rounded-[2rem] pointer-events-none"
-                    style={{
-                      background: "radial-gradient(ellipse 85% 85% at 50% 50%, rgba(199,196,102,0.18) 0%, transparent 70%)",
-                    }}
-                  />
-
-                  {/* Image container wrapper to set bounds for TiltContainer */}
-                  <div className="w-full max-w-lg lg:max-w-none aspect-[4/3] lg:aspect-[3/4] xl:aspect-square relative">
-                    <TiltContainer>
-                      {/* Inner image container */}
-                      <div className="hero-image-glow overflow-hidden w-full h-full relative">
-                        <Image
-                          src={slide.imageSrc}
-                          alt={slide.imageAlt}
-                          fill
-                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 50vw"
-                          quality={90}
-                          priority={index === 0} // Only prioritize LCP for the first image
-                          className="object-cover object-center"
-                        />
-
-                        {/* Gradient overlay */}
-                        <div
-                          aria-hidden="true"
-                          className="absolute inset-0 rounded-[2rem] pointer-events-none"
-                          style={{
-                            background: "linear-gradient(to top, rgba(43,96,39,0.45) 0%, transparent 50%)",
-                          }}
-                        />
-
-                        {/* Floating dish-name badge */}
-                        <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between" aria-hidden="true">
-                          <div className="hero-badge text-[10px] tracking-widest bg-brand-forest/80 backdrop-blur-sm">
-                            <span className="hero-badge-dot" />
-                            {slide.imageBadge}
-                          </div>
-                        </div>
-                      </div>
-                    </TiltContainer>
-                  </div>
                 </div>
               </div>
             );

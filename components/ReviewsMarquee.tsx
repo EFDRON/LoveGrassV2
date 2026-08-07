@@ -166,7 +166,7 @@ export function ReviewsMarquee() {
          * Gradient: brand-charcoal → brand-deep-forest
          */
         background:
-          "linear-gradient(135deg, #141414 0%, #0f2416 100%)",
+          "linear-gradient(to bottom, #0f2416 0%, #141414 100%)",
       }}
     >
       {/* ── Mesob pattern overlay ── */}

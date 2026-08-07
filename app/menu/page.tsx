@@ -1,44 +1,49 @@
 import type { Metadata } from "next";
+import { MENU_CATEGORIES } from "@/lib/menu-data";
+import { MenuCategory } from "@/components/MenuCategory";
 
 export const metadata: Metadata = {
-  title: "Menu",
+  title: "Menu | Love Grass",
   description:
     "Browse the Love Grass menu — traditional Ethiopian wats, tibs, vegetarian platters, and our signature 100% teff injera. Authentic flavours, Dubai-crafted.",
 };
 
 export default function MenuPage() {
   return (
-    <section
-      aria-label="Menu page"
-      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20"
-    >
-      {/* Section header */}
-      <div className="text-center mb-16">
-        <span className="inline-block mb-3 px-4 py-1 rounded-full bg-[#2B6027]/10 text-[#2B6027] text-xs font-semibold tracking-widest uppercase">
-          Our Kitchen
-        </span>
-        <h1 className="font-display text-4xl sm:text-5xl font-bold text-[#2B6027] leading-tight">
-          The Love Grass Menu
-        </h1>
-        <p className="mt-4 max-w-2xl mx-auto text-[#516A3E] text-lg">
-          Every dish is crafted from recipes passed down through generations —
-          cooked with heritage, served with love.
-        </p>
-      </div>
+    <div className="relative min-h-screen bg-gradient-to-b from-brand-green-dark to-brand-charcoal overflow-hidden pt-20 md:pt-24 pb-24">
+      {/* ── Mesob pattern overlay ── */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 z-0 opacity-5 bg-[url('/mesob-pattern.png')] bg-repeat bg-[length:340px_340px] pointer-events-none"
+      />
+      
+      {/* ── Noise grain ── */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E\")",
+          backgroundRepeat: "repeat",
+          backgroundSize: "200px 200px",
+          opacity: 0.035,
+        }}
+      />
 
-      {/* Placeholder grid — to be replaced with real menu items */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {Array.from({ length: 6 }).map((_, i) => (
-          <div
-            key={i}
-            className="rounded-2xl border border-[#2B6027]/10 bg-white p-6 shadow-sm animate-pulse"
-          >
-            <div className="h-40 rounded-xl bg-[#2B6027]/8 mb-4" />
-            <div className="h-4 w-3/4 rounded-full bg-[#2B6027]/10 mb-2" />
-            <div className="h-3 w-full rounded-full bg-[#2B6027]/6" />
-          </div>
-        ))}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Simple Title */}
+        <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-brand-white text-center mb-10">
+          Menu
+        </h1>
+
+        {/* Menu Categories */}
+        <div className="space-y-0">
+          {MENU_CATEGORIES.map((category) => (
+            <MenuCategory key={category.id} category={category} />
+          ))}
+        </div>
       </div>
-    </section>
+    </div>
   );
 }

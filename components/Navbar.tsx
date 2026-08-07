@@ -163,9 +163,11 @@ export function Navbar() {
           fixed top-0 inset-x-0 z-50
           transition-all duration-300 ease-in-out
           ${
-            scrolled
-              ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-[#2B6027]/10"
-              : "bg-white/80 backdrop-blur-sm"
+            (pathname === "/" || pathname === "/menu")
+              ? "bg-gradient-to-b from-white via-white/95 to-transparent pb-6"
+              : scrolled
+                ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-[#2B6027]/10"
+                : "bg-white/80 backdrop-blur-sm"
           }
         `}
       >
@@ -334,8 +336,8 @@ export function Navbar() {
         </nav>
       </div>
 
-      {/* Spacer so page content clears the fixed nav */}
-      <div className="h-16 md:h-20" aria-hidden="true" />
+      {/* Spacer so page content clears the fixed nav (except on home and menu where content goes underneath) */}
+      {(pathname !== "/" && pathname !== "/menu") && <div className="h-16 md:h-20" aria-hidden="true" />}
     </>
   );
 }
