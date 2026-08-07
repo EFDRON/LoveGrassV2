@@ -92,8 +92,8 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
                 {/* ═══════════════════════════════════════════════
                     LEFT COLUMN — Narrative / Text
                 ═══════════════════════════════════════════════ */}
-                <div className="relative z-10 w-full h-full lg:w-[50%] xl:w-[40%] flex items-center px-4 sm:px-8 lg:pl-12 xl:pl-[8%] pt-20 lg:pt-28">
-                  <div className="flex flex-col justify-center lg:pr-8 text-center lg:text-left h-full max-w-2xl py-16 md:py-24 mt-8 lg:mt-0">
+                <div className="relative z-10 w-full h-full lg:w-[50%] xl:w-[40%] flex items-center px-4 sm:px-8 lg:pl-12 xl:pl-[8%] pt-12 lg:pt-28">
+                  <div className="flex flex-col justify-center lg:pr-8 text-center lg:text-left h-full max-w-2xl pt-12 pb-32 md:py-24 lg:mt-0">
                   {/* Amharic / brand identity badge */}
                   <div className="flex justify-center lg:justify-start mb-5">
                     <div className="hero-badge" aria-label={`${slide.kickerEnglish} in Amharic — ${slide.kickerAmharic}`}>
@@ -129,7 +129,7 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
 
                   {/* CTA buttons */}
                   <div className="flex flex-col sm:flex-row items-center lg:items-start gap-4">
-                    <Link href="/menu" className="btn-hero-solid w-full sm:w-auto" tabIndex={isActive ? 0 : -1}>
+                    <Link href="#featured-dishes" className="btn-hero-solid w-full sm:w-auto" tabIndex={isActive ? 0 : -1}>
                       View Our Menu
                     </Link>
                     <Link 

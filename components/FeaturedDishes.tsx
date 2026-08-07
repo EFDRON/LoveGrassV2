@@ -9,6 +9,7 @@ import Link from "next/link";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { TiltCard } from "@/components/animations/TiltCard";
 import { DishCard, ArrowRight } from "@/components/DishCard";
+import { MobileDishCarousel } from "@/components/MobileDishCarousel";
 
 /* -------------------------------------------------------
    Dish data — replace with CMS/API data as needed
@@ -110,9 +111,12 @@ export function FeaturedDishes() {
           </div>
         </div>
 
-        {/* Dish grid — 1 col mobile, 3 col desktop */}
+        {/* Mobile Carousel (Embla) */}
+        <MobileDishCarousel dishes={DISHES as any} />
+
+        {/* Desktop Grid (Hidden on Mobile) */}
         <div
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
+          className="hidden md:grid md:grid-cols-3 gap-6 lg:gap-8"
           role="list"
           aria-label="Featured dishes"
         >
@@ -120,7 +124,7 @@ export function FeaturedDishes() {
             <div key={dish.id} role="listitem">
               <ScrollReveal delay={0.1 + i * 0.2}>
                 <TiltCard>
-                  <DishCard dish={dish} index={i} />
+                  <DishCard dish={dish as any} index={i} />
                 </TiltCard>
               </ScrollReveal>
             </div>

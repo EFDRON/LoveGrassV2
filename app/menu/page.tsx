@@ -38,16 +38,16 @@ export default function MenuPage() {
           <h1 className="sr-only">Love Grass Menu</h1>
           
           <nav 
-            className="flex flex-wrap justify-center gap-2 p-2 bg-black/20 backdrop-blur-xl border border-brand-white/10 rounded-3xl md:rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.4)]"
+            className="flex overflow-x-auto gap-2 pb-2 -mx-4 px-4 md:mx-0 md:px-2 md:pb-2 md:flex-wrap md:justify-center md:gap-2 md:bg-black/20 md:backdrop-blur-xl md:border md:border-brand-white/10 md:rounded-full md:shadow-[0_8px_30px_rgb(0,0,0,0.4)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             aria-label="Menu Categories"
           >
             {MENU_CATEGORIES.map((category) => (
               <a
                 key={category.id}
                 href={`#${category.id}`}
-                className="group flex flex-col md:flex-row items-center md:gap-3 px-6 py-2.5 rounded-2xl md:rounded-full font-medium transition-all duration-300 hover:bg-brand-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
+                className="shrink-0 group flex items-center md:gap-3 px-3.5 py-1.5 md:px-6 md:py-2.5 rounded-full font-medium transition-all duration-300 bg-black/30 md:bg-transparent border border-brand-white/10 md:border-transparent hover:bg-brand-gold hover:border-brand-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
               >
-                <span className="text-brand-white/80 group-hover:text-brand-charcoal transition-colors text-sm md:text-base">
+                <span className="text-brand-white/80 group-hover:text-brand-charcoal transition-colors text-xs sm:text-[13px] md:text-base whitespace-nowrap">
                   {category.name}
                 </span>
                 <span 

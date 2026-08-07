@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { DishCard } from "./DishCard";
+import { MobileDishCarousel } from "./MobileDishCarousel";
 import type { MenuCategoryData } from "@/lib/menu-data";
 
 export function MenuCategory({ category }: { category: MenuCategoryData }) {
@@ -34,8 +35,13 @@ export function MenuCategory({ category }: { category: MenuCategoryData }) {
         )}
       </div>
 
-      {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      {/* Mobile Carousel (Shows all dishes, hidden on md+) */}
+      <div className="md:hidden">
+        <MobileDishCarousel dishes={category.dishes} />
+      </div>
+
+      {/* Desktop Grid (Hidden on mobile) */}
+      <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {visibleDishes.map((dish, index) => (
           <div key={dish.id} className={!isExpanded && index >= INITIAL_COUNT ? "hidden" : "animate-in fade-in slide-in-from-bottom-4 duration-500"}>
             <DishCard dish={dish} index={index} />
@@ -43,9 +49,9 @@ export function MenuCategory({ category }: { category: MenuCategoryData }) {
         ))}
       </div>
 
-      {/* See More Toggle */}
+      {/* See More Toggle (Hidden on mobile since carousel shows all horizontally) */}
       {hasMore && (
-        <div className="mt-8 flex justify-center">
+        <div className="mt-8 hidden md:flex justify-center">
           <button
             onClick={() => setIsExpanded(!isExpanded)}
             className="group relative inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-brand-charcoal border border-brand-gold/30 text-brand-gold hover:bg-brand-gold/10 hover:border-brand-gold transition-all duration-300 rounded-full text-sm font-bold tracking-widest uppercase focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
