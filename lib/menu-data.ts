@@ -40,7 +40,7 @@ export const MENU_CATEGORIES: MenuCategoryData[] = [
         tag: "Popular",
         description: "Crispy pastry pockets filled with spiced minced beef, lentils, and herbs. Served with a tangy awaze dip.",
         price: "AED 35",
-        image: "https://images.unsplash.com/photo-1601314167099-232775b2831f?auto=format&fit=crop&q=80&w=600",
+        image: "https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&q=80&w=600",
         imageAlt: "Crispy beef sambusa on a wooden board",
       },
       {
@@ -60,7 +60,7 @@ export const MENU_CATEGORIES: MenuCategoryData[] = [
         tag: "Signature",
         description: "Toasted teff injera generously spread with awaze (spicy pepper paste) and niter kibbeh (clarified butter).",
         price: "AED 40",
-        image: "https://images.unsplash.com/photo-1574880562694-5c914cd6b31c?auto=format&fit=crop&q=80&w=600",
+        image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=600",
         imageAlt: "Kategna - toasted injera with spiced butter",
       },
       {
@@ -108,7 +108,7 @@ export const MENU_CATEGORIES: MenuCategoryData[] = [
         tag: "Popular",
         description: "Finely chopped lean beef, warmed in spiced butter and mitmita. Served raw, rare, or cooked alongside ayib (fresh cheese).",
         price: "AED 110",
-        image: "https://images.unsplash.com/photo-1544025162-831451f21eb2?auto=format&fit=crop&q=80&w=600",
+        image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&q=80&w=600",
         imageAlt: "Kitfo - Ethiopian beef tartare",
       },
       {
@@ -146,7 +146,7 @@ export const MENU_CATEGORIES: MenuCategoryData[] = [
         tag: "Signature",
         description: "Silky roasted chickpea stew, heavily spiced and served bubbling hot in a traditional clay pot.",
         price: "AED 60",
-        image: "https://images.unsplash.com/photo-1548943487-a2e4f43bb2bb?auto=format&fit=crop&q=80&w=600",
+        image: "https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?auto=format&fit=crop&q=80&w=600",
         imageAlt: "Shiro stew in a clay pot",
       },
       {
@@ -176,7 +176,7 @@ export const MENU_CATEGORIES: MenuCategoryData[] = [
         tag: "Popular",
         description: "The ultimate vegan platter. A colorful array of all our plant-based stews and salads arranged on a bed of fresh injera.",
         price: "AED 85",
-        image: "https://images.unsplash.com/photo-1565557618462-81e5927c34d3?auto=format&fit=crop&q=80&w=600",
+        image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=600",
         imageAlt: "Vegetarian mixed platter on injera",
       },
     ],

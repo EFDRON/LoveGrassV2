@@ -83,17 +83,17 @@ function HamburgerIcon({ open }: { open: boolean }) {
       aria-hidden="true"
     >
       <span
-        className={`absolute block h-0.5 w-6 bg-[#2B6027] rounded-full transition-all duration-300 ease-in-out ${
+        className={`absolute block h-0.5 w-6 bg-brand-white rounded-full transition-all duration-300 ease-in-out ${
           open ? "rotate-45 translate-y-0" : "-translate-y-2"
         }`}
       />
       <span
-        className={`absolute block h-0.5 bg-[#2B6027] rounded-full transition-all duration-300 ease-in-out ${
+        className={`absolute block h-0.5 bg-brand-white rounded-full transition-all duration-300 ease-in-out ${
           open ? "w-0 opacity-0" : "w-6 opacity-100"
         }`}
       />
       <span
-        className={`absolute block h-0.5 w-6 bg-[#2B6027] rounded-full transition-all duration-300 ease-in-out ${
+        className={`absolute block h-0.5 w-6 bg-brand-white rounded-full transition-all duration-300 ease-in-out ${
           open ? "-rotate-45 translate-y-0" : "translate-y-2"
         }`}
       />
@@ -163,11 +163,13 @@ export function Navbar() {
           fixed top-0 inset-x-0 z-50
           transition-all duration-300 ease-in-out
           ${
-            (pathname === "/" || pathname === "/menu")
-              ? "bg-gradient-to-b from-white via-white/95 to-transparent pb-6"
+            pathname === "/" || pathname === "/menu"
+              ? scrolled
+                ? "bg-brand-deep-forest/95 backdrop-blur-md shadow-lg border-b border-brand-white/10 py-0"
+                : "bg-gradient-to-b from-black/50 via-black/20 to-transparent py-2" // Safe zone for text legibility
               : scrolled
-                ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-[#2B6027]/10"
-                : "bg-white/80 backdrop-blur-sm"
+                ? "bg-brand-deep-forest/95 backdrop-blur-md shadow-lg border-b border-brand-white/10 py-0"
+                : "bg-brand-deep-forest/90 backdrop-blur-sm py-2"
           }
         `}
       >
@@ -182,30 +184,32 @@ export function Navbar() {
               aria-label="Love Grass — go to homepage"
               className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C7C466] rounded-full"
             >
-              <div className="relative w-12 h-12 flex-shrink-0">
-                {/* <LogoMark /> */}
+              <div className="relative w-14 h-14 md:w-16 md:h-16 flex-shrink-0">
                 <Image
                   src="/lovegrass-logo.png"
                   alt="Love Grass Logo"
                   fill
-                  className="object-contain"
-                  sizes="60px"
+                  className="object-contain scale-110" // scale-110 counteracts built-in transparent padding in the image file
+                  sizes="80px"
                   priority
                 />
               </div>
 
               <span className="hidden sm:block leading-tight">
-                <span className="block text-[#2B6027] font-display font-bold text-xl tracking-tight group-hover:text-[#459934] transition-colors duration-200">
+                <span className="block text-brand-white font-display font-bold text-xl tracking-tight group-hover:text-brand-gold transition-colors duration-200">
                   LoveGrass
                 </span>
-                <span className="block text-[#516A3E] text-[10px] font-medium tracking-widest uppercase">
+                <span className="block text-brand-white/60 text-[10px] font-medium tracking-widest uppercase">
                   Restaurant
                 </span>
               </span>
             </Link>
 
             {/* Desktop navigation */}
-            <ul role="list" className="hidden md:flex items-center gap-1">
+            <ul
+              role="list"
+              className="hidden md:flex items-center gap-1 drop-shadow-md"
+            >
               {NAV_LINKS.map(({ label, href }) => (
                 <li key={href}>
                   <Link
@@ -215,11 +219,11 @@ export function Navbar() {
                     className={`
                       relative px-4 py-2 rounded-full text-sm font-medium tracking-wide
                       transition-colors duration-200 focus-visible:outline-none
-                      focus-visible:ring-2 focus-visible:ring-[#C7C466]
+                      focus-visible:ring-2 focus-visible:ring-brand-gold
                       ${
                         isActive(href)
-                          ? "text-[#2B6027] bg-[#2B6027]/8 font-semibold"
-                          : "text-[#2B6027] hover:text-[#C7C466] hover:bg-[#2B6027]/5"
+                          ? "text-brand-gold font-semibold"
+                          : "text-brand-white/80 hover:text-brand-gold hover:bg-white/5"
                       }
                     `}
                   >
@@ -227,7 +231,7 @@ export function Navbar() {
                     {isActive(href) && (
                       <span
                         aria-hidden="true"
-                        className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#C7C466]"
+                        className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-brand-gold"
                       />
                     )}
                   </Link>
@@ -239,9 +243,9 @@ export function Navbar() {
                 <Link
                   href="/contact"
                   id="nav-reserve-cta"
-                  className="btn-pill btn-primary text-sm"
+                  className="btn-hero-ghost text-sm px-6 py-2.5 relative overflow-hidden before:absolute before:inset-0 before:z-0 before:w-1/3 before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:animate-shine"
                 >
-                  Reserve a Table
+                  <span className="relative z-10">Reserve a Table</span>
                 </Link>
               </li>
             </ul>
@@ -254,7 +258,7 @@ export function Navbar() {
               aria-expanded={mobileOpen}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               onClick={() => setMobileOpen((v) => !v)}
-              className="md:hidden p-2.5 rounded-full hover:bg-[#2B6027]/8 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C7C466]"
+              className="md:hidden p-2.5 rounded-full hover:bg-white/10 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
             >
               <HamburgerIcon open={mobileOpen} />
             </button>
@@ -282,8 +286,8 @@ export function Navbar() {
         aria-label="Mobile navigation menu"
         className={`
           fixed top-16 inset-x-0 z-40 md:hidden
-          bg-white/98 backdrop-blur-xl border-b border-[#2B6027]/10
-          shadow-xl shadow-black/5
+          bg-brand-deep-forest border-b border-brand-white/10
+          shadow-xl shadow-black/20
           transform transition-all duration-300 ease-in-out
           ${
             mobileOpen
@@ -304,8 +308,8 @@ export function Navbar() {
                     transition-all duration-200
                     ${
                       isActive(href)
-                        ? "bg-[#2B6027] text-white shadow-md shadow-[#2B6027]/20 font-semibold"
-                        : "text-[#2B6027] hover:bg-[#2B6027]/8 hover:text-[#C7C466]"
+                        ? "bg-brand-gold/10 text-brand-gold shadow-md font-semibold"
+                        : "text-brand-white/80 hover:bg-brand-white/5 hover:text-brand-gold"
                     }
                   `}
                 >
@@ -313,7 +317,7 @@ export function Navbar() {
                   <span
                     aria-hidden="true"
                     className={`w-1.5 h-1.5 rounded-full flex-shrink-0 transition-colors duration-200 ${
-                      isActive(href) ? "bg-[#C7C466]" : "bg-[#2B6027]/20"
+                      isActive(href) ? "bg-brand-gold" : "bg-brand-white/20"
                     }`}
                   />
                   {label}
@@ -327,17 +331,19 @@ export function Navbar() {
             <Link
               href="/contact"
               id="mobile-reserve-cta"
-              className="btn-pill btn-primary w-full text-center text-base"
+              className="btn-hero-solid w-full text-center text-base py-3 relative overflow-hidden before:absolute before:inset-0 before:z-0 before:w-1/3 before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:animate-shine"
               onClick={() => setMobileOpen(false)}
             >
-              Reserve a Table
+              <span className="relative z-10">Reserve a Table</span>
             </Link>
           </div>
         </nav>
       </div>
 
       {/* Spacer so page content clears the fixed nav (except on home and menu where content goes underneath) */}
-      {(pathname !== "/" && pathname !== "/menu") && <div className="h-16 md:h-20" aria-hidden="true" />}
+      {pathname !== "/" && pathname !== "/menu" && (
+        <div className="h-16 md:h-20" aria-hidden="true" />
+      )}
     </>
   );
 }

@@ -165,8 +165,7 @@ export function ReviewsMarquee() {
         /*
          * Gradient: brand-charcoal → brand-deep-forest
          */
-        background:
-          "linear-gradient(to bottom, #0f2416 0%, #141414 100%)",
+        background: "linear-gradient(to bottom, #0f2416 0%, #141414 100%)",
       }}
     >
       {/* ── Mesob pattern overlay ── */}
@@ -197,7 +196,6 @@ export function ReviewsMarquee() {
 
       {/* ── Content (above overlays) ── */}
       <div className="relative z-10">
-
         {/* Section header */}
         <div className="text-center mb-14 px-4 sm:px-6 lg:px-8">
           {/* Kicker */}

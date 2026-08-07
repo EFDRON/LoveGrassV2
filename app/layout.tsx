@@ -83,7 +83,7 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       className={`${inter.variable} ${playfairDisplay.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-texture">
+      <body className="min-h-full flex flex-col bg-texture" suppressHydrationWarning>
         <Navbar />
         <main className="flex-1">{children}</main>
       </body>
