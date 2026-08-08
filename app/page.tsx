@@ -3,7 +3,6 @@ import Link from "next/link";
 import { FeaturedDishes } from "@/components/FeaturedDishes";
 import { ReviewsMarquee } from "@/components/ReviewsMarquee";
 import { CurtainHero } from "@/components/animations/CurtainHero";
-import { Footer } from "@/components/layout/Footer";
 import { HeroCarousel, type HeroSlide } from "@/components/HeroCarousel";
 
 /* -------------------------------------------------------
@@ -161,6 +160,9 @@ export default function HomePage() {
                 "linear-gradient(to bottom, transparent 0%, #459934 100%)",
             }}
           />
+
+          {/* Scroll Down Indicator */}
+          <ScrollIndicator />
         </CurtainHero>
       </section>
 
@@ -178,11 +180,6 @@ export default function HomePage() {
           charcoal→deep-forest gradient + mesob overlay
       ════════════════════════════════════════════════ */}
       <ReviewsMarquee />
-
-      {/* ════════════════════════════════════════════════
-          FOOTER
-      ════════════════════════════════════════════════ */}
-      <Footer />
     </>
   );
 }

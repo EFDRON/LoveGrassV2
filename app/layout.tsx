@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
+import { TiletSeparator } from "@/components/ui/TiletSeparator";
+import { Footer } from "@/components/layout/Footer";
 
 /* -------------------------------------------------------
    Typography — loaded via next/font (zero layout shift)
@@ -86,6 +88,8 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-texture" suppressHydrationWarning>
         <Navbar />
         <main className="flex-1">{children}</main>
+        <TiletSeparator />
+        <Footer />
       </body>
     </html>
   );

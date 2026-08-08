@@ -28,8 +28,6 @@ export const metadata: Metadata = {
 export default function HeritagePage() {
   return (
     <>
-    
-
       {/* ── Section 1: Teff Journey (animated zigzag timeline) ── */}
       <TeffJourney />
 
@@ -41,9 +39,6 @@ export default function HeritagePage() {
 
       {/* ── Section 4: FAQs (animated accordion) ── */}
       <FAQAccordion />
-
-      {/* ── Footer ── */}
-      <Footer />
     </>
   );
 }
