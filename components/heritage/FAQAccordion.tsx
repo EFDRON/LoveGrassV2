@@ -25,7 +25,7 @@ const FAQS = [
     id: "faq-reservations",
     question: "Do I need a reservation?",
     answer:
-      "Walk-ins are warmly welcomed, but reservations are strongly recommended — particularly for Friday and Saturday evenings, and for groups of four or more. You can reserve a table through our Contact page, by phone, or via our Instagram. We hold reservations for 15 minutes past the booking time.",
+      "Walk-ins are warmly welcomed, but reservations are strongly recommended — particularly for Friday and Saturday evenings, and for groups of four or more. You can reserve a table by phone or via our Instagram. We hold reservations for 15 minutes past the booking time.",
   },
   {
     id: "faq-location",

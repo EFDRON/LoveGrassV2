@@ -15,6 +15,7 @@
  *   - Hover pauses via animation-play-state (handled in globals.css)
  */
 import Image from "next/image";
+import Link from "next/link";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 
 /* -------------------------------------------------------
@@ -256,10 +257,8 @@ export function ReviewsMarquee() {
 
         {/* Bottom CTA */}
         <div className="mt-14 text-center px-4">
-          <a
-            href="https://g.page/r/lovegrass-dubai"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/review"
             id="reviews-leave-review-cta"
             className="btn-outline-gold-dark inline-flex items-center gap-2 text-sm"
           >
@@ -282,7 +281,7 @@ export function ReviewsMarquee() {
                 clipRule="evenodd"
               />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </section>
