@@ -6,7 +6,6 @@ const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Menu", href: "/menu" },
   { label: "Our Heritage", href: "/heritage" },
-  { label: "Contact", href: "/contact" },
 ];
 
 function InstagramIcon() {
@@ -165,8 +164,8 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-brand-white/35">
           <p>© {new Date().getFullYear()} Love Grass Restaurant LLC. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <Link href="/contact" className="hover:text-brand-gold transition-colors duration-200">Privacy Policy</Link>
-            <Link href="/contact" className="hover:text-brand-gold transition-colors duration-200">Terms of Service</Link>
+            <Link href="/" className="hover:text-brand-gold transition-colors duration-200">Privacy Policy</Link>
+            <Link href="/" className="hover:text-brand-gold transition-colors duration-200">Terms of Service</Link>
             <span className="hidden sm:block">Made with ❤️ in Dubai</span>
           </div>
         </div>

@@ -133,11 +133,11 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
                       View Our Menu
                     </Link>
                     <Link 
-                      href="/contact" 
-                      className="btn-hero-ghost w-full sm:w-auto relative overflow-hidden before:absolute before:inset-0 before:z-0 before:w-1/3 before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:animate-shine" 
+                      href="/review" 
+                      className="btn-hero-ghost w-full sm:w-auto relative overflow-hidden before:absolute before:inset-0 before:z-0 before:w-1/3 before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:animate-shine text-center flex items-center justify-center" 
                       tabIndex={isActive ? 0 : -1}
                     >
-                      <span className="relative z-10">Reserve a Table</span>
+                      <span className="relative z-10">Leave a Review</span>
                     </Link>
                   </div>
 

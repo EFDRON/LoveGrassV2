@@ -12,7 +12,6 @@ const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Menu", href: "/menu" },
   { label: "Heritage", href: "/heritage" },
-  { label: "Contact", href: "/contact" },
 ] as const;
 
 /* -------------------------------------------------------
@@ -251,11 +250,11 @@ export function Navbar() {
               {/* Desktop CTA */}
               <li className="ml-4">
                 <Link
-                  href="/contact"
+                  href="/review"
                   id="nav-reserve-cta"
                   className="btn-hero-ghost text-sm px-6 py-2.5 relative overflow-hidden before:absolute before:inset-0 before:z-0 before:w-1/3 before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:animate-shine"
                 >
-                  <span className="relative z-10">Reserve a Table</span>
+                  <span className="relative z-10">Leave a Review</span>
                 </Link>
               </li>
             </ul>
@@ -339,12 +338,12 @@ export function Navbar() {
           {/* Mobile CTA */}
           <div className="mt-6 px-1">
             <Link
-              href="/contact"
+              href="/review"
               id="mobile-reserve-cta"
-              className="btn-hero-solid w-full text-center text-base py-3 relative overflow-hidden before:absolute before:inset-0 before:z-0 before:w-1/3 before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:animate-shine"
+              className="btn-hero-solid w-full text-center text-base py-3 relative overflow-hidden before:absolute before:inset-0 before:z-0 before:w-1/3 before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:animate-shine block"
               onClick={() => setMobileOpen(false)}
             >
-              <span className="relative z-10">Reserve a Table</span>
+              <span className="relative z-10">Leave a Review</span>
             </Link>
           </div>
         </nav>
