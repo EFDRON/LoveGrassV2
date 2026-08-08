@@ -16,7 +16,7 @@ export function AboutUs() {
       {/* ── Mesob pattern overlay ── */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 z-0 opacity-[0.04] bg-[url('/mesob-pattern.png')] bg-repeat bg-[length:340px_340px] pointer-events-none"
+        className="absolute inset-0 z-0 opacity-[0.04] bg-[url('/mesob-pattern.jpg')] bg-repeat bg-[length:340px_340px] pointer-events-none"
       />
 
       {/* ── Ambient glow ── */}
@@ -30,7 +30,6 @@ export function AboutUs() {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         {/* ── Section kicker ── */}
         <div className="flex items-center gap-4 mb-6">
           <span className="h-px w-10 bg-brand-gold/40" />
@@ -41,7 +40,6 @@ export function AboutUs() {
 
         {/* ── Two-column layout ── */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-
           {/* ── Left: Text content ── */}
           <div>
             <h2
@@ -55,30 +53,33 @@ export function AboutUs() {
 
             <div className="space-y-5 text-brand-white/65 text-base leading-relaxed">
               <p>
-                Love Grass was born from a simple but profound belief: that Ethiopian
-                food, at its finest, is one of the world&apos;s great culinary traditions —
-                and it deserves to be celebrated, not merely served.
+                Love Grass was born from a simple but profound belief: that
+                Ethiopian food, at its finest, is one of the world&apos;s great
+                culinary traditions — and it deserves to be celebrated, not
+                merely served.
               </p>
               <p>
-                Our founder carried the memory of his grandmother&apos;s injera across
-                4,000 kilometres — the way it steamed off the clay mitad in the early
-                morning, the way the berbere-spiced stews pooled in its craters, the
-                way the family gathered around the mesob. In Dubai, he recreated that
-                ritual, one carefully sourced ingredient at a time.
+                Our founder carried the memory of his grandmother&apos;s injera
+                across 4,000 kilometres — the way it steamed off the clay mitad
+                in the early morning, the way the berbere-spiced stews pooled in
+                its craters, the way the family gathered around the mesob. In
+                Dubai, he recreated that ritual, one carefully sourced
+                ingredient at a time.
               </p>
               <p>
-                Every injera at Love Grass is made from 100% pure lovegrass teff —
-                sourced directly from Ethiopian highland farms standing at 1,800 metres.
-                No wheat. No barley. Just teff, water, time, and the ancient knowledge
-                of fermentation that Ethiopian mothers have passed down for centuries.
+                Every injera at Love Grass is made from 100% pure lovegrass teff
+                — sourced directly from Ethiopian highland farms standing at
+                1,800 metres. No wheat. No barley. Just teff, water, time, and
+                the ancient knowledge of fermentation that Ethiopian mothers
+                have passed down for centuries.
               </p>
             </div>
 
             {/* ── Pull quote ── */}
             <blockquote className="mt-10 pl-6 border-l-2 border-brand-gold">
               <p className="font-display italic text-xl text-brand-gold/90 leading-relaxed">
-                &ldquo;Food is how a culture remembers itself. Every bite of injera is a
-                page from Ethiopia&apos;s story.&rdquo;
+                &ldquo;Food is how a culture remembers itself. Every bite of
+                injera is a page from Ethiopia&apos;s story.&rdquo;
               </p>
               <cite className="mt-3 block text-brand-white/40 text-sm font-semibold tracking-wider not-italic">
                 — Love Grass Founder
@@ -93,8 +94,12 @@ export function AboutUs() {
                 { value: "Dubai", label: "Est. in the UAE" },
               ].map(({ value, label }) => (
                 <div key={label} className="text-center">
-                  <p className="font-display font-bold text-3xl text-brand-gold">{value}</p>
-                  <p className="mt-1 text-brand-white/45 text-xs leading-snug">{label}</p>
+                  <p className="font-display font-bold text-3xl text-brand-gold">
+                    {value}
+                  </p>
+                  <p className="mt-1 text-brand-white/45 text-xs leading-snug">
+                    {label}
+                  </p>
                 </div>
               ))}
             </div>
@@ -131,7 +136,9 @@ export function AboutUs() {
             {/* Floating badge */}
             <div className="absolute top-[72%] right-[2%] z-10 flex items-center gap-2.5 bg-brand-gold px-4 py-2.5 rounded-2xl shadow-xl">
               <span className="text-brand-charcoal text-xs font-bold tracking-wide leading-tight">
-                🌿 Sourced from<br />Ethiopian Highlands
+                🌿 Sourced from
+                <br />
+                Ethiopian Highlands
               </span>
             </div>
 

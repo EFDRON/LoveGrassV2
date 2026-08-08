@@ -8,33 +8,39 @@
 @theme inline {
   /* Brand palette */
   --color-brand-green-light: #3da328;
-  --color-brand-green-dark:  #459934;
-  --color-brand-forest:      #2b6027;
-  --color-brand-olive:       #516a3e;
-  --color-brand-gold:        #c7c466;
-  --color-brand-white:       #ffffff;
+  --color-brand-green-dark: #459934;
+  --color-brand-forest: #2b6027;
+  --color-brand-olive: #516a3e;
+  --color-brand-gold: #c7c466;
+  --color-brand-white: #ffffff;
 
   /* Dark section palette — used by Featured Dishes & Reviews */
-  --color-brand-charcoal:    #141414;   /* near-black section background   */
-  --color-brand-deep-forest: #0f2416;   /* dark forest green card surfaces  */
-  --color-brand-green-main:  #3da328;   /* semantic alias for primary green */
+  --color-brand-charcoal: #141414; /* near-black section background   */
+  --color-brand-deep-forest: #0f2416; /* dark forest green card surfaces  */
+  --color-brand-green-main: #3da328; /* semantic alias for primary green */
 
   /* Semantic tokens */
   --color-background: var(--color-brand-white);
   --color-foreground: #1a1a1a;
-  --color-muted:      #6b7280;
+  --color-muted: #6b7280;
 
   /* Typography scale */
-  --font-sans:    var(--font-inter);
+  --font-sans: var(--font-inter);
   --font-display: var(--font-playfair);
 
   /* Animations */
   --animate-shine: shine 6s infinite;
-  
+
   @keyframes shine {
-    0% { transform: translateX(-150%) skewX(-25deg); }
-    15% { transform: translateX(250%) skewX(-25deg); }
-    100% { transform: translateX(250%) skewX(-25deg); }
+    0% {
+      transform: translateX(-150%) skewX(-25deg);
+    }
+    15% {
+      transform: translateX(250%) skewX(-25deg);
+    }
+    100% {
+      transform: translateX(250%) skewX(-25deg);
+    }
   }
 }
 
@@ -199,7 +205,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-image: url("/mesob-pattern.png");
+  background-image: url("/mesob-pattern.jpg");
   background-repeat: repeat;
   background-size: 340px 340px;
   opacity: 0.07;
@@ -374,9 +380,9 @@ body {
   border: 2px solid var(--color-brand-gold);
   transition:
     background-color 160ms ease,
-    color            160ms ease,
-    box-shadow       160ms ease,
-    transform        160ms ease;
+    color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
 }
 
 .btn-outline-gold-dark:hover {
@@ -399,14 +405,18 @@ body {
    will-change: transform triggers GPU compositing.
    ============================================================ */
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .marquee-track {
   display: flex;
-  gap: 1.5rem;                        /* gap-6 between cards */
-  width: max-content;                 /* expands to fit all cards */
+  gap: 1.5rem; /* gap-6 between cards */
+  width: max-content; /* expands to fit all cards */
   animation: marquee 48s linear infinite;
   will-change: transform;
 }

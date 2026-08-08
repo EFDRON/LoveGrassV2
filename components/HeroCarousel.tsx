@@ -129,7 +129,7 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
 
                   {/* CTA buttons */}
                   <div className="flex flex-col sm:flex-row items-center lg:items-start gap-4">
-                    <Link href="#featured-dishes" className="btn-hero-solid w-full sm:w-auto" tabIndex={isActive ? 0 : -1}>
+                    <Link href="/menu" className="btn-hero-solid w-full sm:w-auto" tabIndex={isActive ? 0 : -1}>
                       View Our Menu
                     </Link>
                     <Link 

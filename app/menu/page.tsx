@@ -3,7 +3,7 @@ import { MENU_CATEGORIES } from "@/lib/menu-data";
 import { MenuCategory } from "@/components/MenuCategory";
 
 export const metadata: Metadata = {
-  title: "Menu | Love Grass",
+  title: "Menu",
   description:
     "Browse the Love Grass menu — traditional Ethiopian wats, tibs, vegetarian platters, and our signature 100% teff injera. Authentic flavours, Dubai-crafted.",
 };
@@ -14,9 +14,9 @@ export default function MenuPage() {
       {/* ── Mesob pattern overlay ── */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 z-0 opacity-5 bg-[url('/mesob-pattern.png')] bg-repeat bg-[length:340px_340px] pointer-events-none"
+        className="absolute inset-0 z-0 opacity-5 bg-[url('/mesob-pattern.jpg')] bg-repeat bg-[length:340px_340px] pointer-events-none"
       />
-      
+
       {/* ── Noise grain ── */}
       <div
         aria-hidden="true"
@@ -31,13 +31,12 @@ export default function MenuPage() {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* Modern Menu Navigation Tabs */}
         <div className="flex flex-col items-center justify-center mb-16 relative z-20">
           {/* Hidden H1 for SEO since we are replacing the giant text with tabs */}
           <h1 className="sr-only">Love Grass Menu</h1>
-          
-          <nav 
+
+          <nav
             className="flex overflow-x-auto gap-2 pb-2 -mx-4 px-4 md:mx-0 md:px-2 md:pb-2 md:flex-wrap md:justify-center md:gap-2 md:bg-black/20 md:backdrop-blur-xl md:border md:border-brand-white/10 md:rounded-full md:shadow-[0_8px_30px_rgb(0,0,0,0.4)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             aria-label="Menu Categories"
           >
@@ -50,8 +49,8 @@ export default function MenuPage() {
                 <span className="text-brand-white/80 group-hover:text-brand-charcoal transition-colors text-xs sm:text-[13px] md:text-base whitespace-nowrap">
                   {category.name}
                 </span>
-                <span 
-                  className="hidden md:inline-block text-[10px] font-bold uppercase tracking-widest text-brand-gold/70 group-hover:text-brand-charcoal/70 transition-colors" 
+                <span
+                  className="hidden md:inline-block text-[10px] font-bold uppercase tracking-widest text-brand-gold/70 group-hover:text-brand-charcoal/70 transition-colors"
                   lang="am"
                 >
                   {category.amharic}

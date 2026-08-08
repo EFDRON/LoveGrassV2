@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FeaturedDishes } from "@/components/FeaturedDishes";
 import { ReviewsMarquee } from "@/components/ReviewsMarquee";
-import { CurtainHero } from "@/components/animations/CurtainHero";
 import { HeroCarousel, type HeroSlide } from "@/components/HeroCarousel";
 
 /* -------------------------------------------------------
@@ -146,9 +145,8 @@ export default function HomePage() {
     <>
       <section
         aria-label="Love Grass hero — Artisanal Injera, Ancient Heritage"
-        className="hero-section hero-mesob-overlay sticky top-0 h-screen w-full z-0"
+        className="hero-section hero-mesob-overlay relative h-screen w-full z-0"
       >
-        <CurtainHero>
           <HeroCarousel slides={HERO_SLIDES} />
 
           {/* Bottom edge fade — softens the transition into the next section */}
@@ -157,13 +155,12 @@ export default function HomePage() {
             className="absolute bottom-0 inset-x-0 h-48 pointer-events-none z-10"
             style={{
               background:
-                "linear-gradient(to bottom, transparent 0%, #459934 100%)",
+                "linear-gradient(to bottom, transparent 0%, #1a5c1a 100%)",
             }}
           />
 
           {/* Scroll Down Indicator */}
           <ScrollIndicator />
-        </CurtainHero>
       </section>
 
       {/* Anchor target for scroll indicator */}

@@ -161,18 +161,28 @@ export function Navbar() {
         role="banner"
         className={`
           fixed top-0 inset-x-0 z-50
-          transition-all duration-300 ease-in-out
-          ${
-            pathname === "/" || pathname === "/menu"
-              ? scrolled
-                ? "bg-brand-deep-forest/95 backdrop-blur-md shadow-lg border-b border-brand-white/10 py-0"
-                : "bg-gradient-to-b from-black/50 via-black/20 to-transparent py-2" // Safe zone for text legibility
-              : scrolled
-                ? "bg-brand-deep-forest/95 backdrop-blur-md shadow-lg border-b border-brand-white/10 py-0"
-                : "bg-brand-deep-forest/90 backdrop-blur-sm py-2"
-          }
+          transition-[padding] duration-500 ease-out
+          ${scrolled ? "py-0" : "py-2 md:py-4"}
         `}
       >
+        {/* Layer 1: Safe zone gradient for text legibility (Only needed on Home page over the image) */}
+        {pathname === "/" && (
+          <div
+            className="absolute inset-0 z-[-2] pointer-events-none bg-gradient-to-b from-black/60 via-black/20 to-transparent"
+            aria-hidden="true"
+          />
+        )}
+
+        {/* Layer 2: Solid frosted glass background (Fades in on scroll — 100% GPU accelerated) */}
+        <div
+          className={`
+            absolute inset-0 z-[-1] pointer-events-none
+            bg-brand-deep-forest/95 backdrop-blur-md shadow-lg border-b border-brand-white/10
+            transition-opacity duration-500 ease-out
+            ${scrolled ? "opacity-100" : "opacity-0"}
+          `}
+          aria-hidden="true"
+        />
         <nav
           aria-label="Main navigation"
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -339,11 +349,6 @@ export function Navbar() {
           </div>
         </nav>
       </div>
-
-      {/* Spacer so page content clears the fixed nav (except on home and menu where content goes underneath) */}
-      {pathname !== "/" && pathname !== "/menu" && (
-        <div className="h-16 md:h-20" aria-hidden="true" />
-      )}
     </>
   );
 }

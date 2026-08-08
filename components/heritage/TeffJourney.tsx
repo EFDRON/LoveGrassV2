@@ -883,7 +883,7 @@ export function TeffJourney() {
       {/* ── Mesob overlay ── */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 z-0 opacity-10 bg-[url('/mesob-pattern.png')] bg-repeat bg-[length:340px_340px] pointer-events-none"
+        className="absolute inset-0 z-0 opacity-10 bg-[url('/mesob-pattern.jpg')] bg-repeat bg-[length:340px_340px] pointer-events-none"
       />
 
       {/* ── Section header ── */}

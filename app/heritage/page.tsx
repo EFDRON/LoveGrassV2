@@ -3,7 +3,6 @@ import { TeffJourney } from "@/components/heritage/TeffJourney";
 import { AboutUs } from "@/components/heritage/AboutUs";
 import { RestaurantCaptures } from "@/components/heritage/RestaurantCaptures";
 import { FAQAccordion } from "@/components/heritage/FAQAccordion";
-import { Footer } from "@/components/layout/Footer";
 
 /* ── SEO metadata ── */
 export const metadata: Metadata = {

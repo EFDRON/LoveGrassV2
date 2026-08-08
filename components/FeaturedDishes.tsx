@@ -38,8 +38,7 @@ const DISHES = [
     price: "AED 55",
     image:
       "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=600",
-    imageAlt:
-      "Misir Wat — Ethiopian spiced red lentil stew with herbs",
+    imageAlt: "Misir Wat — Ethiopian spiced red lentil stew with herbs",
   },
   {
     id: "yebere-tibs",
@@ -51,12 +50,9 @@ const DISHES = [
     price: "AED 95",
     image:
       "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=600",
-    imageAlt:
-      "Ye'Bere Tibs — sautéed Ethiopian beef with rosemary and onions",
+    imageAlt: "Ye'Bere Tibs — sautéed Ethiopian beef with rosemary and onions",
   },
 ] as const;
-
-
 
 /* -------------------------------------------------------
    FeaturedDishes — exported section
@@ -66,16 +62,15 @@ export function FeaturedDishes() {
     <section
       id="featured-dishes"
       aria-labelledby="featured-heading"
-      className="relative z-10 w-full min-h-screen py-24 md:py-32 bg-gradient-to-b from-brand-green-dark to-brand-deep-forest"
+      className="relative z-10 w-full min-h-screen py-24 md:py-32 bg-gradient-to-b from-brand-green-dark to-brand-deep-forest shadow-[0_-40px_80px_rgba(0,0,0,0.7)]"
     >
       {/* ── Mesob pattern overlay ── */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 z-0 opacity-10 bg-[url('/mesob-pattern.png')] bg-repeat bg-[length:340px_340px] pointer-events-none"
+        className="absolute inset-0 z-0 opacity-10 bg-[url('/mesob-pattern.jpg')] bg-repeat bg-[length:340px_340px] pointer-events-none"
       />
 
       <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-
         {/* Section header */}
         <div className="text-center mb-16 md:mb-20">
           {/* Amharic kicker */}
@@ -104,7 +99,10 @@ export function FeaturedDishes() {
           </p>
 
           {/* Gold rule accent */}
-          <div aria-hidden="true" className="mt-8 flex items-center justify-center gap-3">
+          <div
+            aria-hidden="true"
+            className="mt-8 flex items-center justify-center gap-3"
+          >
             <span className="h-px w-12 bg-brand-gold/30" />
             <span className="w-1.5 h-1.5 rounded-full bg-brand-gold/50" />
             <span className="h-px w-12 bg-brand-gold/30" />

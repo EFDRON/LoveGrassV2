@@ -173,7 +173,7 @@ export function ReviewsMarquee() {
         aria-hidden="true"
         className="absolute inset-0 z-0 pointer-events-none"
         style={{
-          backgroundImage: "url('/mesob-pattern.png')",
+          backgroundImage: "url('/mesob-pattern.jpg')",
           backgroundRepeat: "repeat",
           backgroundSize: "340px 340px",
           opacity: 0.1,
