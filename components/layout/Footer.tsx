@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { NewsletterForm } from "@/components/NewsletterForm";
 import React from "react";
 
 const NAV_LINKS = [
@@ -137,23 +138,7 @@ export function Footer() {
             <p className="text-brand-white/55 text-sm leading-relaxed">
               Sign up for seasonal menus, private dining events, and exclusive offers.
             </p>
-            <form className="flex flex-col gap-3" action="mailto:hello@lovegrass.ae" method="GET">
-              <div className="relative">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your email address"
-                  className="w-full bg-brand-deep-forest border border-brand-gold/20 rounded-xl py-3 px-4 text-sm text-brand-white placeholder:text-brand-white/35 focus:outline-none focus:border-brand-gold/60 focus:ring-1 focus:ring-brand-gold/40 transition-all duration-200"
-                  aria-label="Email address for newsletter"
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full py-2.5 rounded-xl bg-brand-gold/10 border border-brand-gold/30 text-brand-gold text-sm font-semibold hover:bg-brand-gold hover:text-brand-charcoal transition-all duration-200"
-              >
-                Subscribe
-              </button>
-            </form>
+            <NewsletterForm />
           </div>
         </div>
 
